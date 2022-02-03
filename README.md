@@ -38,3 +38,14 @@ module.exports = {
   }
 }
 ```
+
+## getServerSideProps
+- 서버에서 데이터를 받아 페이지의 props로 넘겨준다!
+- server side를 통해 props를 page로 보내기
+- fetch로 받은 데이터를 객체에 담아 return 한다
+  - 객체를 props라는 `key`와 백엔드에서 받은 `value`를 갖는다.
+- `getServerSideProps`를 사용하는 경우 API 통신이 끝나고 HTML이 완성이 된 후 브라우저가 보이기 시작
+  - 상황에 따라 데이터 렌더링 선택하기(CSR, SSR) -> 일단 navgation이나 footer, loading화면을 보여주고 나중에 데이터를 받것 혹은 초기 화면  로딩이 조금 느리더라도 server에서 html을 완성하여 보여주는것, 이 둘 중 어떤 것이 내가 만드는 프로덕트에 더 적합한지 판단하여 사용하기
+
+### CSR
+- ReactJs -> useEffect -> useState -> fetch -> 영화 정보를 state에 넣기 -> 영화 데이터 화면에 그려주기
